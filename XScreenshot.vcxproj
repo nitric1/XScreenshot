@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2DA65F68-AC19-4885-89BC-FACFB0FC4AD6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>XScreenshot</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="XScreenshot.props" />
+    <Import Project="XScreenshot.Win32.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="XScreenshot.props" />
+    <Import Project="XScreenshot.x64.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="XScreenshot.props" />
+    <Import Project="XScreenshot.Win32.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="XScreenshot.props" />
+    <Import Project="XScreenshot.x64.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;XSCREENSHOT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Common.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>XScreenshot.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;XSCREENSHOT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Common.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>XScreenshot.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;XSCREENSHOT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Common.h</PrecompiledHeaderFile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>XScreenshot.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;XSCREENSHOT_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>Common.h</PrecompiledHeaderFile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>XScreenshot.def</ModuleDefinitionFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="External\include\curl\curl.h" />
+    <ClInclude Include="External\include\curl\curlbuild.h" />
+    <ClInclude Include="External\include\curl\curlrules.h" />
+    <ClInclude Include="External\include\curl\curlver.h" />
+    <ClInclude Include="External\include\curl\easy.h" />
+    <ClInclude Include="External\include\curl\mprintf.h" />
+    <ClInclude Include="External\include\curl\multi.h" />
+    <ClInclude Include="External\include\curl\stdcheaders.h" />
+    <ClInclude Include="External\include\curl\typecheck-gcc.h" />
+    <ClInclude Include="External\include\json\json-forwards.h" />
+    <ClInclude Include="External\include\json\json.h" />
+    <ClInclude Include="External\include\openssl\aes.h" />
+    <ClInclude Include="External\include\openssl\asn1.h" />
+    <ClInclude Include="External\include\openssl\asn1t.h" />
+    <ClInclude Include="External\include\openssl\asn1_mac.h" />
+    <ClInclude Include="External\include\openssl\bio.h" />
+    <ClInclude Include="External\include\openssl\blowfish.h" />
+    <ClInclude Include="External\include\openssl\bn.h" />
+    <ClInclude Include="External\include\openssl\buffer.h" />
+    <ClInclude Include="External\include\openssl\camellia.h" />
+    <ClInclude Include="External\include\openssl\cast.h" />
+    <ClInclude Include="External\include\openssl\cms.h" />
+    <ClInclude Include="External\include\openssl\comp.h" />
+    <ClInclude Include="External\include\openssl\conf.h" />
+    <ClInclude Include="External\include\openssl\conf_api.h" />
+    <ClInclude Include="External\include\openssl\crypto.h" />
+    <ClInclude Include="External\include\openssl\des.h" />
+    <ClInclude Include="External\include\openssl\des_old.h" />
+    <ClInclude Include="External\include\openssl\dh.h" />
+    <ClInclude Include="External\include\openssl\dsa.h" />
+    <ClInclude Include="External\include\openssl\dso.h" />
+    <ClInclude Include="External\include\openssl\dtls1.h" />
+    <ClInclude Include="External\include\openssl\ebcdic.h" />
+    <ClInclude Include="External\include\openssl\ec.h" />
+    <ClInclude Include="External\include\openssl\ecdh.h" />
+    <ClInclude Include="External\include\openssl\ecdsa.h" />
+    <ClInclude Include="External\include\openssl\engine.h" />
+    <ClInclude Include="External\include\openssl\err.h" />
+    <ClInclude Include="External\include\openssl\evp.h" />
+    <ClInclude Include="External\include\openssl\e_os2.h" />
+    <ClInclude Include="External\include\openssl\hmac.h" />
+    <ClInclude Include="External\include\openssl\idea.h" />
+    <ClInclude Include="External\include\openssl\krb5_asn.h" />
+    <ClInclude Include="External\include\openssl\kssl.h" />
+    <ClInclude Include="External\include\openssl\lhash.h" />
+    <ClInclude Include="External\include\openssl\md4.h" />
+    <ClInclude Include="External\include\openssl\md5.h" />
+    <ClInclude Include="External\include\openssl\mdc2.h" />
+    <ClInclude Include="External\include\openssl\modes.h" />
+    <ClInclude Include="External\include\openssl\objects.h" />
+    <ClInclude Include="External\include\openssl\obj_mac.h" />
+    <ClInclude Include="External\include\openssl\ocsp.h" />
+    <ClInclude Include="External\include\openssl\opensslv.h" />
+    <ClInclude Include="External\include\openssl\ossl_typ.h" />
+    <ClInclude Include="External\include\openssl\pem.h" />
+    <ClInclude Include="External\include\openssl\pem2.h" />
+    <ClInclude Include="External\include\openssl\pkcs12.h" />
+    <ClInclude Include="External\include\openssl\pkcs7.h" />
+    <ClInclude Include="External\include\openssl\pqueue.h" />
+    <ClInclude Include="External\include\openssl\rand.h" />
+    <ClInclude Include="External\include\openssl\rc2.h" />
+    <ClInclude Include="External\include\openssl\rc4.h" />
+    <ClInclude Include="External\include\openssl\ripemd.h" />
+    <ClInclude Include="External\include\openssl\rsa.h" />
+    <ClInclude Include="External\include\openssl\safestack.h" />
+    <ClInclude Include="External\include\openssl\seed.h" />
+    <ClInclude Include="External\include\openssl\sha.h" />
+    <ClInclude Include="External\include\openssl\ssl.h" />
+    <ClInclude Include="External\include\openssl\ssl2.h" />
+    <ClInclude Include="External\include\openssl\ssl23.h" />
+    <ClInclude Include="External\include\openssl\ssl3.h" />
+    <ClInclude Include="External\include\openssl\stack.h" />
+    <ClInclude Include="External\include\openssl\symhacks.h" />
+    <ClInclude Include="External\include\openssl\tls1.h" />
+    <ClInclude Include="External\include\openssl\ts.h" />
+    <ClInclude Include="External\include\openssl\txt_db.h" />
+    <ClInclude Include="External\include\openssl\ui.h" />
+    <ClInclude Include="External\include\openssl\ui_compat.h" />
+    <ClInclude Include="External\include\openssl\whrlpool.h" />
+    <ClInclude Include="External\include\openssl\x509.h" />
+    <ClInclude Include="External\include\openssl\x509v3.h" />
+    <ClInclude Include="External\include\openssl\x509_vfy.h" />
+    <ClInclude Include="External\include\png.h" />
+    <ClInclude Include="External\include\pngconf.h" />
+    <ClInclude Include="External\include\pnglibconf.h" />
+    <ClInclude Include="External\include\zconf.h" />
+    <ClInclude Include="External\include\zlib.h" />
+    <ClInclude Include="xchat-plugin.h" />
+    <ClInclude Include="XScreenshot.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Common.cpp" />
+    <ClCompile Include="External\src\json\jsoncpp.cpp" />
+    <ClCompile Include="External\src\openssl\applink.c" />
+    <ClCompile Include="XScreenshot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XScreenshot.def" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
