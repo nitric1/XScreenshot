@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XScreenshot", "XScreenshot.vcxproj", "{2DA65F68-AC19-4885-89BC-FACFB0FC4AD6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XScreenshotProxy", "..\XScreenshotProxy\XScreenshotProxy.vcxproj", "{BDBE28EF-ED25-42F2-8340-93E9F518E534}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XScreenshotProxy", "XScreenshotProxy\XScreenshotProxy.vcxproj", "{BDBE28EF-ED25-42F2-8340-93E9F518E534}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
