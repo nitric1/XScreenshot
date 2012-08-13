@@ -25,6 +25,7 @@ namespace
 		else // TODO: Failed
 		{
 		}
+		wcscat_s(curPath, L"XScreenshot\\");
 		SetDllDirectoryW(curPath);
 		mainLib = LoadLibraryW(L"XScreenshot.dll");
 	}
