@@ -21,10 +21,7 @@ namespace
 		GetModuleFileNameW(instance, curPath, 512);
 		p = wcsrchr(curPath, L'\\');
 		if(p != nullptr)
-		{
 			*++ p = L'\0';
-			wcscat_s(curPath, L"XScreenshot\\");
-		}
 		else // TODO: Failed
 		{
 		}
