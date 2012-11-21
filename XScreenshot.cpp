@@ -34,8 +34,8 @@ namespace XScreenshot
 
 		curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1l);
 		curl_easy_setopt(curl, CURLOPT_USERAGENT, (pluginName + "/" + pluginVersion + " Image Uploader for Imgur").c_str());
-		curl_easy_setopt(curl, CURLOPT_READDATA, static_cast<void *>(&rcbd));
-		curl_easy_setopt(curl, CURLOPT_READFUNCTION, &curlReadCallback);
+		// curl_easy_setopt(curl, CURLOPT_READDATA, static_cast<void *>(&rcbd));
+		// curl_easy_setopt(curl, CURLOPT_READFUNCTION, &curlReadCallback);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, static_cast<void *>(&wcbd));
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &curlWriteCallback);
 
@@ -50,7 +50,7 @@ namespace XScreenshot
 		curl_easy_cleanup(curl);
 	}
 
-	size_t ImgurService::curlReadCallback(void *data, size_t size, size_t nmemb, void *param)
+	/*size_t ImgurService::curlReadCallback(void *data, size_t size, size_t nmemb, void *param)
 	{
 		CurlReadCallbackData *cbd = static_cast<CurlReadCallbackData *>(param);
 		size_t realSize = size * nmemb;
@@ -62,7 +62,7 @@ namespace XScreenshot
 		memcpy_s(data, size * nmemb, cbd->data.data() + cbd->pos, realSize);
 
 		return realSize;
-	}
+	}*/
 
 	size_t ImgurService::curlWriteCallback(void *data, size_t size, size_t nmemb, void *param)
 	{
@@ -77,8 +77,8 @@ namespace XScreenshot
 
 	std::string ImgurService::upload(const std::vector<uint8_t> &data)
 	{
-		rcbd.data = data;
-		rcbd.pos = 0;
+		// rcbd.data = data;
+		// rcbd.pos = 0;
 
 		wcbd.data.clear();
 
@@ -130,7 +130,7 @@ namespace XScreenshot
 	HINSTANCE instance;
 
 	std::string pluginName = "XScreenshot";
-	std::string pluginVersion = "1.0.0";
+	std::string pluginVersion = "1.1.0";
 	std::string pluginDescription = "Captures screenshot and shares it.";
 
 	const std::string usageXS = "Usage: XS | \xE3\x85\x8C\xE3\x84\xB4, captures screenshot and says the shared image URI.";
@@ -419,6 +419,11 @@ void xchat_plugin_get_info(char **name, char **desc, char **version, void **)
 	*version = &*std::begin(XScreenshot::pluginVersion);
 }
 
+void hexchat_plugin_get_info(char **name, char **desc, char **version, void **reserved)
+{
+	xchat_plugin_get_info(name, desc, version, reserved);
+}
+
 int xchat_plugin_init(xchat_plugin *iph, char **name, char **desc, char **version, char *arg)
 {
 	ph = iph;
@@ -435,7 +440,17 @@ int xchat_plugin_init(xchat_plugin *iph, char **name, char **desc, char **versio
 	return 1;
 }
 
+int hexchat_plugin_init(xchat_plugin *iph, char **name, char **desc, char **version, char *arg)
+{
+	return xchat_plugin_init(iph, name, desc, version, arg);
+}
+
 int xchat_plugin_deinit()
 {
 	return 1;
+}
+
+int hexchat_plugin_deinit()
+{
+	return xchat_plugin_deinit();
 }

@@ -21,7 +21,10 @@ namespace
 		GetModuleFileNameW(instance, curPath, 512);
 		p = wcsrchr(curPath, L'\\');
 		if(p != nullptr)
+		{
 			*++ p = L'\0';
+			wcscat_s(curPath, L"XScreenshot\\");
+		}
 		else // TODO: Failed
 		{
 		}
@@ -44,12 +47,22 @@ extern "C"
 		getInfo(name, desc, version, reserved);
 	}
 
+	void hexchat_plugin_get_info(char **name, char **desc, char **version, void **reserved)
+	{
+		xchat_plugin_get_info(name, desc, version, reserved);
+	}
+
 	int xchat_plugin_init(void *ph, char **name, char **desc, char **version, char *arg)
 	{
 		if(!mainLib)
 			load();
 		InitFn init = reinterpret_cast<InitFn>(GetProcAddress(mainLib, "xchat_plugin_init"));
 		return init(ph, name, desc, version, arg);
+	}
+
+	int hexchat_plugin_init(void *ph, char **name, char **desc, char **version, char *arg)
+	{
+		return xchat_plugin_init(ph, name, desc, version, arg);
 	}
 
 	int xchat_plugin_deinit()
@@ -64,5 +77,10 @@ extern "C"
 			mainLib = nullptr;
 		}
 		return ret;
+	}
+
+	int hexchat_plugin_deinit()
+	{
+		return xchat_plugin_deinit();
 	}
 }

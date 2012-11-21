@@ -25,7 +25,7 @@ namespace XScreenshot
 			std::vector<uint8_t> data;
 		};
 
-		CurlReadCallbackData rcbd;
+		// CurlReadCallbackData rcbd;
 		CurlWriteCallbackData wcbd;
 		CURL *curl;
 
@@ -34,7 +34,7 @@ namespace XScreenshot
 		virtual ~ImgurService();
 
 	public:
-		static size_t curlReadCallback(void *, size_t, size_t, void *);
+		// static size_t curlReadCallback(void *, size_t, size_t, void *);
 		static size_t curlWriteCallback(void *, size_t, size_t, void *);
 		virtual std::string upload(const std::vector<uint8_t> &);
 	};
@@ -103,6 +103,9 @@ extern xchat_plugin *ph;
 extern "C"
 {
 	void xchat_plugin_get_info(char **, char **, char **, void **);
+	void hexchat_plugin_get_info(char **, char **, char **, void **);
 	int xchat_plugin_init(xchat_plugin *, char **, char **, char **, char *);
+	int hexchat_plugin_init(xchat_plugin *, char **, char **, char **, char *);
 	int xchat_plugin_deinit();
+	int hexchat_plugin_deinit();
 };
